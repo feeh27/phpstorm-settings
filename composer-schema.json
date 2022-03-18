@@ -28,7 +28,7 @@
         "version": {
             "type": "string",
             "description": "Package version, see https://getcomposer.org/doc/04-schema.md#version for more info on valid schemes.",
-            "pattern": "^v?\\d+(\\.\\d+){0,3}|^dev-"
+            "pattern": "^v?\\d+(\\.\\d+){0,3}(-(dev|(p(atch)?|a(lpha)?|b(eta)?|RC)(\\d+)?))?$"
         },
         "default-branch": {
             "type": ["boolean"],
@@ -140,21 +140,23 @@
             "type": "object",
             "description": "This is an object of package name (keys) and version constraints (values) that are required to run this package.",
             "additionalProperties": {
-                "type": "^v?\\d+(\\.\\d+){0,3}(-(dev|(p(atch)?|a(lpha)?|b(eta)?|RC)(\\d+)?))?$"
+                "type": "string"
             }
         },
         "require-dev": {
             "type": "object",
             "description": "This is an object of package name (keys) and version constraints (values) that this package requires for developing it (testing tools and such).",
             "additionalProperties": {
-                "type": "^v?\\d+(\\.\\d+){0,3}(-(dev|(p(atch)?|a(lpha)?|b(eta)?|RC)(\\d+)?))?$"
+                "type": "string",
+                "pattern": "^v?\\d+(\\.\\d+){0,3}(-(dev|(p(atch)?|a(lpha)?|b(eta)?|RC)(\\d+)?))?$"
             }
         },
         "replace": {
             "type": "object",
             "description": "This is an object of package name (keys) and version constraints (values) that can be replaced by this package.",
             "additionalProperties": {
-                "type": "string"
+                "type": "string",
+                "pattern": "^v?\\d+(\\.\\d+){0,3}(-(dev|(p(atch)?|a(lpha)?|b(eta)?|RC)(\\d+)?))?$"
             }
         },
         "conflict": {
@@ -873,7 +875,8 @@
                     "format": "uri"
                 },
                 "version": {
-                    "type": "string"
+                    "type": "string",
+                    "pattern": "^v?\\d+(\\.\\d+){0,3}(-(dev|(p(atch)?|a(lpha)?|b(eta)?|RC)(\\d+)?))?$"
                 },
                 "time": {
                     "type": "string"
@@ -890,7 +893,8 @@
                 "require": {
                     "type": "object",
                     "additionalProperties": {
-                        "type": "string"
+                        "type": "string",
+                        "pattern": "^v?\\d+(\\.\\d+){0,3}(-(dev|(p(atch)?|a(lpha)?|b(eta)?|RC)(\\d+)?))?$"
                     }
                 },
                 "replace": {
@@ -914,7 +918,8 @@
                 "require-dev": {
                     "type": "object",
                     "additionalProperties": {
-                        "type": "string"
+                        "type": "string",
+                        "pattern": "^v?\\d+(\\.\\d+){0,3}(-(dev|(p(atch)?|a(lpha)?|b(eta)?|RC)(\\d+)?))?$"
                     }
                 },
                 "suggest": {
