@@ -140,14 +140,14 @@
             "type": "object",
             "description": "This is an object of package name (keys) and version constraints (values) that are required to run this package.",
             "additionalProperties": {
-                "type": "string"
+                "type": "^v?\\d+(\\.\\d+){0,3}(-(dev|(p(atch)?|a(lpha)?|b(eta)?|RC)(\\d+)?))?$"
             }
         },
         "require-dev": {
             "type": "object",
             "description": "This is an object of package name (keys) and version constraints (values) that this package requires for developing it (testing tools and such).",
             "additionalProperties": {
-                "type": "string"
+                "type": "^v?\\d+(\\.\\d+){0,3}(-(dev|(p(atch)?|a(lpha)?|b(eta)?|RC)(\\d+)?))?$"
             }
         },
         "replace": {
